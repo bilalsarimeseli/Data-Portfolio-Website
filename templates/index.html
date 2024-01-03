@@ -15,47 +15,32 @@
 		<link rel="stylesheet" href="/static/css/noscript.css" />
 	</noscript>
 	<!-- Add this script in the head section of your HTML file -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const form = document.querySelector('form');
+			form.addEventListener('submit', function (event) {
+				// Prevent the default form submission behavior
+				event.preventDefault();
 
-	<head>
-		<title>Bilal Sarimeseli</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/static/css/main.css" />
-		<noscript>
-			<link rel="stylesheet" href="/static/css/noscript.css" />
-		</noscript>
-		<!-- Add this script in the head section of your HTML file -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const form = document.querySelector('form');
-				form.addEventListener('submit', function (event) {
-					// Prevent the default form submission behavior
-					event.preventDefault();
+				// Get the form data
+				const formData = new FormData(form);
 
-					// Get the form data
-					const formData = new FormData(form);
+				// Perform any additional processing if needed
 
-					// Perform any additional processing if needed
+				// Update the action attribute to the Google Forms URL
+				form.action = "https://docs.google.com/forms/d/e/1FAIpQLSfGbgtma767dSxGVC6Uz-x0PMcvsy28tTQx3TbBASKCDFsNWQ/formResponse";
 
-					// Update the action attribute to the Google Forms URL
-					form.action = "https://docs.google.com/forms/d/e/1FAIpQLSfGbgtma767dSxGVC6Uz-x0PMcvsy28tTQx3TbBASKCDFsNWQ/formResponse";
+				// Submit the form
+				form.submit();
 
-					// Submit the form
-					form.submit();
-
-					// Redirect to the 'thank_you' page after a short delay (adjust as needed)
-					setTimeout(function () {
-						// Change the port to 5000
-						window.location.href = "http://127.0.0.1:5000/thank_you";
-					}, 1000); // 1000 milliseconds = 1 second
-				});
+				// Redirect to the 'thank_you' page after a short delay (adjust as needed)
+				setTimeout(function () {
+					// Change the port to 5000
+					window.location.href = "http://127.0.0.1:5000/thank_you";
+				}, 1000); // 1000 milliseconds = 1 second
 			});
-		</script>
-
-
-
-	</head>
-
+		});
+	</script>
 </head>
 
 
