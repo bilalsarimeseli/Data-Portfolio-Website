@@ -4,5 +4,9 @@ entrypoint: gunicorn -b :$PORT app:app
 handlers:
 - url: /static
   static_dir: static/
+- url: /(.*\.(gif|png|jpg|css|js|ico|html))$
+  static_files: templates/\1
+  upload: templates/(.*\.(gif|png|jpg|css|js|ico|html))$
 - url: /.*
   script: auto
+
